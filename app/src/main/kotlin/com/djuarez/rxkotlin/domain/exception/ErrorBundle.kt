@@ -22,7 +22,7 @@ package com.djuarez.rxkotlin.domain.exception
  * Interface to represent a wrapper around an [Exception] to manage errors.
  */
 interface ErrorBundle {
-    val exception: Exception
+  val exception: Exception
 
-    val errorMessage: String
+  val errorMessage: String
 }

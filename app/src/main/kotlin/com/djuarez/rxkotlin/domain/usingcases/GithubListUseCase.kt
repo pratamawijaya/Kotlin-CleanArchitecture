@@ -8,17 +8,18 @@ import rx.Observable
 import javax.inject.Inject
 
 class GithubListUseCase @Inject
-    constructor(threadExecutor: ThreadExecutor, postExecutionThread: PostExecutionThread,
-            private val githubRepository: GithubRepository) : UseCase<List<Github>>(threadExecutor, postExecutionThread) {
-    private var page: Int? = null
-    private var perPage: Int? = null
+constructor(threadExecutor: ThreadExecutor, postExecutionThread: PostExecutionThread,
+    private val githubRepository: GithubRepository) : UseCase<List<Github>>(threadExecutor,
+    postExecutionThread) {
+  private var page: Int? = null
+  private var perPage: Int? = null
 
-    fun setPagination(page: Int, perPage: Int) {
-        this.page = page
-        this.perPage = perPage
-    }
+  fun setPagination(page: Int, perPage: Int) {
+    this.page = page
+    this.perPage = perPage
+  }
 
-    override fun buildUseCaseObservable(): Observable<List<Github>> {
-        return this.githubRepository.githubList(page, perPage)
-    }
+  override fun buildUseCaseObservable(): Observable<List<Github>> {
+    return this.githubRepository.githubList(page, perPage)
+  }
 }

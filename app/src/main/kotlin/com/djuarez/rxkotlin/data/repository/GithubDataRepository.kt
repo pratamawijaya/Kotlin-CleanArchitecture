@@ -10,15 +10,15 @@ import javax.inject.Inject
 class GithubDataRepository
 @Inject constructor(private val mapper: GithubMapper, private val dataFactory: GithubDataFactory) : GithubRepository {
 
-    override fun githubList(page: Int?, perPage: Int?): Observable<List<Github>> {
-        return dataFactory.createCloudDataStore()
-                .githubList(page, perPage)
-                .map({ mapper.transform(it) })
+  override fun githubList(page: Int?, perPage: Int?): Observable<List<Github>> {
+    return dataFactory.createCloudDataStore()
+        .githubList(page, perPage)
+        .map({ mapper.transform(it) })
 
-    }
+  }
 
-    override fun github(id: String): Observable<Github> {
-        return dataFactory.createCloudDataStore().github(id).map({ mapper.transform(it) })
-    }
+  override fun github(id: String): Observable<Github> {
+    return dataFactory.createCloudDataStore().github(id).map({ mapper.transform(it) })
+  }
 }
 

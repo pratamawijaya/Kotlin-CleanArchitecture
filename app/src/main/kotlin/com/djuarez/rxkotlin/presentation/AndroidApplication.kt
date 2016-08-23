@@ -31,26 +31,26 @@ import io.realm.RealmConfiguration
  */
 class AndroidApplication : Application() {
 
-    val component: ApplicationComponent
-        get() = DaggerApplicationComponent.builder()
-                .applicationModule(ApplicationModule(this))
-                .build()
+  val component: ApplicationComponent
+    get() = DaggerApplicationComponent.builder()
+        .applicationModule(ApplicationModule(this))
+        .build()
 
-    override fun onCreate() {
-        super.onCreate()
-        initRealm()
-        component.inject(this)
+  override fun onCreate() {
+    super.onCreate()
+    initRealm()
+    component.inject(this)
+  }
+
+  private fun initRealm() {
+    val realmConfiguration: RealmConfiguration = RealmConfiguration.Builder(this).build();
+    Realm.setDefaultConfiguration(realmConfiguration)
+  }
+
+  companion object {
+
+    operator fun get(context: Context): AndroidApplication {
+      return context.applicationContext as AndroidApplication
     }
-
-    private fun initRealm() {
-        val realmConfiguration: RealmConfiguration = RealmConfiguration.Builder(this).build();
-        Realm.setDefaultConfiguration(realmConfiguration)
-    }
-
-    companion object {
-
-        operator fun get(context: Context): AndroidApplication {
-            return context.applicationContext as AndroidApplication
-        }
-    }
+  }
 }

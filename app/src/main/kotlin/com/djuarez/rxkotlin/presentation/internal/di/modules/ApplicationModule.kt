@@ -36,40 +36,40 @@ import javax.inject.Singleton
 @Module
 class ApplicationModule(private val androidApplication: AndroidApplication) {
 
-    @Provides
-    @Singleton
-    fun application(): AndroidApplication {
-        return androidApplication
-    }
+  @Provides
+  @Singleton
+  fun application(): AndroidApplication {
+    return androidApplication
+  }
 
-    @Provides
-    @Singleton
-    fun provideApplicationContext(): Context {
-        return androidApplication
-    }
+  @Provides
+  @Singleton
+  fun provideApplicationContext(): Context {
+    return androidApplication
+  }
 
-    @Provides
-    @Singleton
-    fun provideThreadExecutor(jobExecutor: JobExecutor): ThreadExecutor {
-        return jobExecutor
-    }
+  @Provides
+  @Singleton
+  fun provideThreadExecutor(jobExecutor: JobExecutor): ThreadExecutor {
+    return jobExecutor
+  }
 
-    @Provides
-    @Singleton
-    fun providePostExecutionThread(uiThread: UIThread): PostExecutionThread {
-        return uiThread
-    }
+  @Provides
+  @Singleton
+  fun providePostExecutionThread(uiThread: UIThread): PostExecutionThread {
+    return uiThread
+  }
 
-    @Provides
-    @Singleton
-    fun provideSharedPreferences(): SharedPreferences {
-        return androidApplication.getSharedPreferences("app", Context.MODE_APPEND)
-    }
+  @Provides
+  @Singleton
+  fun provideSharedPreferences(): SharedPreferences {
+    return androidApplication.getSharedPreferences("app", Context.MODE_APPEND)
+  }
 
-    @Provides
-    @Singleton
-    fun provideGithubRepository(dataRepository: GithubDataRepository): GithubRepository {
-        return dataRepository
+  @Provides
+  @Singleton
+  fun provideGithubRepository(dataRepository: GithubDataRepository): GithubRepository {
+    return dataRepository
 
-    }
+  }
 }

@@ -23,7 +23,7 @@ package com.djuarez.rxkotlin.domain.exception
  */
 class DefaultErrorBundle(override val exception: Exception) : ErrorBundle {
 
-    override val errorMessage: String
-        get() = this.exception.message!!
+  override val errorMessage: String
+    get() = this.exception.message!!
 
 }

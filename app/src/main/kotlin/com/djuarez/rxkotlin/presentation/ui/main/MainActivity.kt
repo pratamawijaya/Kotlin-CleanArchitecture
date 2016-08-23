@@ -17,31 +17,31 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), MainView {
 
-    @Inject
-    lateinit var mainPresenter: MainPresenter
+  @Inject
+  lateinit var mainPresenter: MainPresenter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        component.inject(this)
-        mainPresenter.view = this;
-        mainPresenter.onCreate()
-    }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
+    component.inject(this)
+    mainPresenter.view = this;
+    mainPresenter.onCreate()
+  }
 
-    private val component: ActivityComponent
-        get() = DaggerActivityComponent.builder()
-                .applicationComponent((application as AndroidApplication).component)
-                .activityModule(ActivityModule(this))
-                .build()
+  private val component: ActivityComponent
+    get() = DaggerActivityComponent.builder()
+        .applicationComponent((application as AndroidApplication).component)
+        .activityModule(ActivityModule(this))
+        .build()
 
-    override fun renderView(github: Github) {
-        Glide.with(this).load(github?.avatarUrl).into(userImage)
-        userName.text = github?.name
-        publicRepos.text = "Public Repos: " + github?.publicRepos
-                .toString()
-    }
+  override fun renderView(github: Github) {
+    Glide.with(this).load(github?.avatarUrl).into(userImage)
+    userName.text = github?.name
+    publicRepos.text = "Public Repos: " + github?.publicRepos
+        .toString()
+  }
 
-    override fun showError(throwable: Throwable) {
-        Toast.makeText(this, "Something was wrong", Toast.LENGTH_LONG).show()
-    }
+  override fun showError(throwable: Throwable) {
+    Toast.makeText(this, "Something was wrong", Toast.LENGTH_LONG).show()
+  }
 }

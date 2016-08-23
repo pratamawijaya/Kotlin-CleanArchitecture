@@ -22,25 +22,25 @@ import javax.inject.Singleton
 @Singleton
 class RestApi @Inject constructor() {
 
-    private val service: GithubService
+  private val service: GithubService
 
-    init {
-        val builder = OkHttpClient.Builder().addInterceptor(getLogginInterceptor())
-        val retro = Retrofit.Builder().baseUrl("https://api.github.com")
-                .addConverterFactory(GsonConverterFactory.create(Gson()))
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .client(builder.build()).build()
-        service = retro.create(GithubService::class.java)
-    }
+  init {
+    val builder = OkHttpClient.Builder().addInterceptor(getLogginInterceptor())
+    val retro = Retrofit.Builder().baseUrl("https://api.github.com")
+        .addConverterFactory(GsonConverterFactory.create(Gson()))
+        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+        .client(builder.build()).build()
+    service = retro.create(GithubService::class.java)
+  }
 
-    fun githubUser(id: String): Observable<GithubEntity> {
-        return service.getGithubUser(id);
-    }
+  fun githubUser(id: String): Observable<GithubEntity> {
+    return service.getGithubUser(id);
+  }
 
-    fun getLogginInterceptor(): Interceptor {
-        val interceptor = HttpLoggingInterceptor()
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
-        return interceptor
-    }
+  fun getLogginInterceptor(): Interceptor {
+    val interceptor = HttpLoggingInterceptor()
+    interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+    return interceptor
+  }
 
 }

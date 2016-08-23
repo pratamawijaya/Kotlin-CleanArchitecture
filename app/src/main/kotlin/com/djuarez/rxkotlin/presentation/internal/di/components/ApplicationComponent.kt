@@ -35,17 +35,17 @@ import javax.inject.Singleton
 @Component(modules = arrayOf(ApplicationModule::class))
 interface ApplicationComponent {
 
-    fun inject(androidApplication: AndroidApplication)
+  fun inject(androidApplication: AndroidApplication)
 
-    val androidApplication: AndroidApplication
+  val androidApplication: AndroidApplication
 
-    fun context(): Context
+  fun context(): Context
 
-    fun navigator(): Navigator
+  fun navigator(): Navigator
 
-    fun threadExecutor(): ThreadExecutor
+  fun threadExecutor(): ThreadExecutor
 
-    fun postExecutionThread(): PostExecutionThread
+  fun postExecutionThread(): PostExecutionThread
 
-    fun githubRepository(): GithubRepository
+  fun githubRepository(): GithubRepository
 }

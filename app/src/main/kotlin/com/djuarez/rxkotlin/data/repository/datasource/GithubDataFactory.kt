@@ -8,13 +8,13 @@ import javax.inject.Singleton
 @Singleton
 class GithubDataFactory @Inject constructor(private val restApi: RestApi, val dbHelper: DBHelper) {
 
-    fun createCloudDataStore(): GithubDataStore {
-        return GithubCloudDataStore(restApi, dbHelper)
-    }
+  fun createCloudDataStore(): GithubDataStore {
+    return GithubCloudDataStore(restApi, dbHelper)
+  }
 
-    fun createDBDataStore(): GithubDataStore {
-        return GithubDBDataStore(dbHelper)
-    }
+  fun createDBDataStore(): GithubDataStore {
+    return GithubDBDataStore(dbHelper)
+  }
 
 }
 

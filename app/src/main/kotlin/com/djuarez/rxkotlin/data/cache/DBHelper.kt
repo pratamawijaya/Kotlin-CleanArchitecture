@@ -12,26 +12,26 @@ import javax.inject.Inject
 
 class DBHelper @Inject constructor() {
 
-    private val realm: Realm = Realm.getDefaultInstance()
+  private val realm: Realm = Realm.getDefaultInstance()
 
-    fun save(github: GithubEntity) {
-      /*  realm.beginTransaction()
-        realm.copyToRealmOrUpdate(github)
-        realm.commitTransaction()
-        */
+  fun save(github: GithubEntity) {
+    /*  realm.beginTransaction()
+      realm.copyToRealmOrUpdate(github)
+      realm.commitTransaction()
+      */
+  }
+
+  fun get(id: String): Observable<GithubEntity> {
+    return Observable.create { subscriber ->
+      val savedUser: GithubEntity? = RealmQuery.createQuery(realm,
+          GithubEntity::class.java).equalTo("name", id)
+          .findFirst()
+      if (savedUser != null) {
+        subscriber.onNext(savedUser)
+        subscriber.onCompleted()
+      } else subscriber.onError(Throwable())
+
     }
-
-    fun get(id: String): Observable<GithubEntity> {
-        return Observable.create { subscriber ->
-            val savedUser: GithubEntity? = RealmQuery.createQuery(realm,
-                    GithubEntity::class.java).equalTo("name", id)
-                    .findFirst()
-            if (savedUser != null) {
-                subscriber.onNext(savedUser)
-                subscriber.onCompleted()
-            } else subscriber.onError(Throwable())
-
-        }
-    }
+  }
 
 }

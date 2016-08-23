@@ -4,6 +4,6 @@ import com.djuarez.rxkotlin.domain.model.Github
 
 
 interface MainView {
-    fun renderView(github: Github)
-    fun showError(throwable: Throwable)
+  fun renderView(github: Github)
+  fun showError(throwable: Throwable)
 }

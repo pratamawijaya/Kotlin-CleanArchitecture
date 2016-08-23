@@ -11,13 +11,13 @@ import javax.inject.Inject
 class MainPresenter @Inject
 constructor(private val githubUseCase: GithubUseCase) {
 
-    var view: MainView? = null
+  var view: MainView? = null
 
-    fun onCreate() {
-        githubUseCase.setId("djuarez")
-        githubUseCase.execute(FunctionSubscriber<Github>()
-                     .onNext { view?.renderView(it) }
-                     .onError { view?.showError(it) })
-    }
+  fun onCreate() {
+    githubUseCase.setId("djuarez")
+    githubUseCase.execute(FunctionSubscriber<Github>()
+        .onNext { view?.renderView(it) }
+        .onError { view?.showError(it) })
+  }
 }
 

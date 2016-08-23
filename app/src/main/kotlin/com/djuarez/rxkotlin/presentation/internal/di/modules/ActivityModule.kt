@@ -19,10 +19,9 @@
 package com.djuarez.rxkotlin.presentation.internal.di.modules
 
 import android.app.Activity
-
+import com.djuarez.rxkotlin.presentation.internal.di.scope.PerActivity
 import dagger.Module
 import dagger.Provides
-import com.djuarez.rxkotlin.presentation.internal.di.scope.PerActivity
 
 /**
  * A module to wrap the Activity state and expose it to the graph.
@@ -30,12 +29,12 @@ import com.djuarez.rxkotlin.presentation.internal.di.scope.PerActivity
 @Module
 class ActivityModule(private val baseActivity: Activity) {
 
-    /**
-     * Expose the activity to dependents in the graph.
-     */
-    @Provides
-    @PerActivity
-    internal fun provideActivity(): Activity {
-        return this.baseActivity
-    }
+  /**
+   * Expose the activity to dependents in the graph.
+   */
+  @Provides
+  @PerActivity
+  internal fun provideActivity(): Activity {
+    return this.baseActivity
+  }
 }

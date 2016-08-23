@@ -6,12 +6,12 @@ package com.djuarez.rxkotlin.domain.model
 
 open class Github {
 
-    open var id: Int = 0
+  open var id: Int = 0
 
-    open var avatarUrl: String? = null
+  open var avatarUrl: String? = null
 
-    open var name: String? = null
+  open var name: String? = null
 
-    open var publicRepos: Int? = null
+  open var publicRepos: Int? = null
 
 }

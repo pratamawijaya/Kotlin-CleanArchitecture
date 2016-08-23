@@ -19,10 +19,8 @@
 package com.djuarez.rxkotlin.presentation.internal.di.scope
 
 import java.lang.annotation.Retention
-
-import javax.inject.Scope
-
 import java.lang.annotation.RetentionPolicy.RUNTIME
+import javax.inject.Scope
 
 /**
  * A scoping annotation to permit objects whose lifetime should

@@ -4,7 +4,7 @@ import com.djuarez.rxkotlin.data.entity.GithubEntity
 import rx.Observable
 
 interface GithubDataStore {
-    fun githubList(page: Int?, perPage: Int?): Observable<List<GithubEntity>>
+  fun githubList(page: Int?, perPage: Int?): Observable<List<GithubEntity>>
 
-    fun github(id: String): Observable<GithubEntity>
+  fun github(id: String): Observable<GithubEntity>
 }

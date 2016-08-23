@@ -9,11 +9,11 @@ import rx.Observable
  */
 
 class GithubDBDataStore(private val dbHelper: DBHelper) : GithubDataStore {
-    override fun githubList(page: Int?, perPage: Int?): Observable<List<GithubEntity>> {
-        throw UnsupportedOperationException()
-    }
+  override fun githubList(page: Int?, perPage: Int?): Observable<List<GithubEntity>> {
+    throw UnsupportedOperationException()
+  }
 
-    override fun github(id: String): Observable<GithubEntity> {
-       return dbHelper.get(id);
-    }
+  override fun github(id: String): Observable<GithubEntity> {
+    return dbHelper.get(id);
+  }
 }

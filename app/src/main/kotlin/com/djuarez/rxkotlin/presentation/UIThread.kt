@@ -33,6 +33,6 @@ class UIThread
 @Inject
 constructor() : PostExecutionThread {
 
-    override val scheduler: Scheduler
-        get() = AndroidSchedulers.mainThread()
+  override val scheduler: Scheduler
+    get() = AndroidSchedulers.mainThread()
 }

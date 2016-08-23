@@ -32,8 +32,9 @@ import dagger.Component
  * [PerActivity]
  */
 @PerActivity
-@Component(dependencies = arrayOf(ApplicationComponent::class), modules = arrayOf(ActivityModule::class))
+@Component(dependencies = arrayOf(ApplicationComponent::class),
+    modules = arrayOf(ActivityModule::class))
 interface ActivityComponent {
 
-    fun inject(mainActivity: MainActivity)
+  fun inject(mainActivity: MainActivity)
 }

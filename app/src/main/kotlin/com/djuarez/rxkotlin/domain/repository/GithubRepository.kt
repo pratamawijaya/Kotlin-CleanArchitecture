@@ -5,7 +5,7 @@ import rx.Observable
 
 interface GithubRepository {
 
-    fun github(id: String): Observable<Github>
+  fun github(id: String): Observable<Github>
 
-    fun githubList(page: Int?, perPage: Int?): Observable<List<Github>>
+  fun githubList(page: Int?, perPage: Int?): Observable<List<Github>>
 }

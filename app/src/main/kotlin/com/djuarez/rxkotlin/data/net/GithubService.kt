@@ -10,6 +10,6 @@ import rx.Observable
  */
 
 interface GithubService {
-    @GET("/users/{username}")
-    fun getGithubUser(@Path("username") username: String): Observable<GithubEntity>
+  @GET("/users/{username}")
+  fun getGithubUser(@Path("username") username: String): Observable<GithubEntity>
 }
